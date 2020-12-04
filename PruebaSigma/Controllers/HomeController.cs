@@ -1,6 +1,8 @@
-﻿using System;
+﻿using SigmaDepartamentos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -13,18 +15,18 @@ namespace PruebaSigma.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult ObtenerDepartamentos()
         {
-            ViewBag.Message = "Your application description page.";
+            // Consultar método que consume API URL de Departamentos:
+            Task<string> taskDistribucionGeo = Task.Run(() => SigmaDistribucionGeo.ObtenerDepartamentos());
+            taskDistribucionGeo.Wait();
 
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return new JsonResult()
+            {
+                JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                Data = taskDistribucionGeo.Result
+            };
         }
     }
 }
