@@ -186,6 +186,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SigmaDB\SigmaDB.csproj">
+      <Project>{E80217BD-DEF0-4AA0-B938-FCCEB022C136}</Project>
+      <Name>SigmaDB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SigmaDepartamentos\SigmaDepartamentos.csproj">
       <Project>{858F3908-138A-4240-84D0-E9D6FD36BEE5}</Project>
       <Name>SigmaDepartamentos</Name>

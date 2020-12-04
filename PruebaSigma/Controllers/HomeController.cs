@@ -1,9 +1,7 @@
-﻿using SigmaDepartamentos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using PruebaSigma.Models.Repo.Visitante;
+using SigmaDB;
+using SigmaDepartamentos;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace PruebaSigma.Controllers
@@ -27,6 +25,13 @@ namespace PruebaSigma.Controllers
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
                 Data = taskDistribucionGeo.Result
             };
+        }
+
+        [HttpPost]
+        public ActionResult GuardarVisitante(visitante visitante)
+        {
+            VisitanteBD.GuardarVisitante(visitante);
+            return null;
         }
     }
 }
