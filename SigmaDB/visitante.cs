@@ -24,6 +24,7 @@ namespace SigmaDB
         public string Ciudad { get; set; }
         [Required(ErrorMessage = "Por favor ingresa tu nombre")]
         [StringLength(50, ErrorMessage = "Nombre incorrecto, demasiado largo")]
+        [RegularExpression(@"^[ a-zA-Z]+$", ErrorMessage = "Nombre incorrecto")]
         public string Nombre { get; set; }
         [Required(ErrorMessage = "Por favor ingresa tu correo")]
         [StringLength(30, ErrorMessage = "Correo incorrecto, demasiado largo")]
