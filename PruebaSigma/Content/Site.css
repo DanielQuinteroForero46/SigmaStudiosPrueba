@@ -1,24 +1,29 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿/*@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+    font-weight: 900 !important;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.logo-container {
+    padding: 3em 0 1em 0;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+.prueba-descrip {
+    color: dimgray;
+    font-weight: 500 !important;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.sigma-image {
+    width: 100% !important;
+}
+
+.form-container {
+    box-shadow: rgba(0,0,0,.1) 5px 5px 20px 5px;
+    border-radius: 20px;
+    padding: 4em 1.5em;
 }
