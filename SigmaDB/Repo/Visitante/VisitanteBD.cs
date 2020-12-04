@@ -8,7 +8,7 @@ namespace PruebaSigma.Models.Repo.Visitante
 {
     public class VisitanteBD
     {
-        public static bool GuardarVisitante(visitante visitante)
+        public static int GuardarVisitante(visitante visitante)
         {
             try
             {
@@ -23,12 +23,12 @@ namespace PruebaSigma.Models.Repo.Visitante
                         context.Dispose();
                     }
                 }
-                return success;
+                return success? visitante.Id : 0;
             }
             catch (Exception ex)
             {
                 Debug.Write(ex.Message, "Error al guardar Visitante");
-                return false;
+                return 0;
             }
         }
     }

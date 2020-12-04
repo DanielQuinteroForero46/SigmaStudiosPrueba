@@ -1,4 +1,6 @@
-﻿using PruebaSigma.Models.Repo.Visitante;
+﻿using PruebaSigma.Models;
+using PruebaSigma.Models.Repo.Visitante;
+using PruebaSigma.Validacion;
 using SigmaDB;
 using SigmaDepartamentos;
 using System.Threading.Tasks;
@@ -30,8 +32,25 @@ namespace PruebaSigma.Controllers
         [HttpPost]
         public ActionResult GuardarVisitante(visitante visitante)
         {
-            VisitanteBD.GuardarVisitante(visitante);
-            return null;
+            JsonResult jsonResult = new JsonResult(){ JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            MsgResponse validacionCampos = ValidarCampos.Validar(visitante);
+            if(!validacionCampos.Success)
+            {
+                jsonResult.Data = validacionCampos;
+                return jsonResult;
+            }
+
+            int visitanteId = VisitanteBD.GuardarVisitante(visitante);
+            if (visitanteId == 0)
+                 jsonResult.Data = RegisterResponse.ERROR_REGISTRO;
+            else
+            {
+                MsgResponse response = RegisterResponse.REGISTRO_EXITOSO;
+                response.VisitanteId = visitanteId;
+                jsonResult.Data = response;
+            }
+            return jsonResult;
         }
     }
 }
