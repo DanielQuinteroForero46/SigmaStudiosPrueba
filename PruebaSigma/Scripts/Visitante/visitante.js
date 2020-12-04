@@ -33,7 +33,12 @@ guardarInfoVisitante = () => {
             console.log(result);
             regResponse = new RegisterResponse(result);
             var descripcionID = "";
-            if (regResponse.Success) descripcionID = "ID del Visitante: " + regResponse.getVisitanteId();
+            if (regResponse.Success) {
+                descripcionID = "ID del Visitante: " + regResponse.getVisitanteId();
+                $('#form-visitante').each(function () {
+                    this.reset();
+                });
+            }
 
             mostrarAlert("Señor usuario", [regResponse.getMensage(), descripcionID]);
         },
