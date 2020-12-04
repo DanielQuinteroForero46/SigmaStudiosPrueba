@@ -20,7 +20,7 @@ namespace SigmaDepartamentos
                 HttpClient httpClient = new HttpClient();
                 string json = await httpClient.GetStringAsync(urlDepartamentos);
 
-                return "";
+                return json;
             }
             catch (Exception ex)
             {
