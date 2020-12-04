@@ -40,9 +40,9 @@
     outline-style: none;
 }
 
-    .btn-enviar:hover {
-        box-shadow: rgba(252, 66, 123,.6) 5px 5px 20px 2px;
-    }
+.btn-enviar:hover {
+    box-shadow: rgba(252, 66, 123,.6) 5px 5px 20px 2px;
+}
 
 .form-container select {
     cursor: pointer;

@@ -24,9 +24,12 @@ namespace PruebaSigma
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/ventana.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/visitante").Include(
+                "~/Scripts/crear_elementos.js",
+                "~/Scripts/ventana_modal.js",
                 "~/Scripts/Visitante/visitante.js",
                 "~/Scripts/Visitante/distribucion-geografica.js"));
         }

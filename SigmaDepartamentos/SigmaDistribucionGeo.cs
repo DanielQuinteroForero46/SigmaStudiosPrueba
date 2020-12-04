@@ -16,6 +16,7 @@ namespace SigmaDepartamentos
             try
             {
                 List<object> listDistribucionGeo = new List<object>();
+                //Obtener URL parametrizada en el Web.config:
                 string urlDepartamentos = WebConfigurationManager.AppSettings["url_departamentos"];
                 HttpClient httpClient = new HttpClient();
                 string json = await httpClient.GetStringAsync(urlDepartamentos);

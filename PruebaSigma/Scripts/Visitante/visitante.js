@@ -1,10 +1,11 @@
 ﻿$(document).ready(function () {
     obtenerDepartamentos();
-
+    //Evento generado al seleccionar el departamento para cargar las ciudades correspondiente
     $('#departamento').change(function () {
         obtenerCiudades($('#departamento').val());
     });
 
+    //Evento generado al seleccionar "Enviar":
     $('#form-visitante').submit(function (e) {
         e.preventDefault();
         guardarInfoVisitante();
@@ -13,6 +14,7 @@
 
 
 guardarInfoVisitante = () => {
+    //Obtener datos del formulario:
     var visitante = {
         Departamento: ($("#departamento").val() == "Seleccionar") ? "" : $("#departamento").val(),
         Ciudad: ($("#ciudad").val() == "Seleccionar") ? "" : $("#ciudad").val(),
@@ -20,6 +22,7 @@ guardarInfoVisitante = () => {
         Correo: $("#correo").val(),
     }
 
+    //Enviar información del visitante al Backend (Las validaciones de campos se hacen allí)
     $.ajax({
         url: "/Home/GuardarVisitante",
         type: "POST",
@@ -30,9 +33,9 @@ guardarInfoVisitante = () => {
             console.log(result);
             regResponse = new RegisterResponse(result);
             var descripcionID = "";
-            if (regResponse.Success) descripcionID = "\nID del Visitante: " + regResponse.getVisitanteId();
+            if (regResponse.Success) descripcionID = "ID del Visitante: " + regResponse.getVisitanteId();
 
-            alert(regResponse.getMensage() + descripcionID);
+            mostrarAlert("Señor usuario", [regResponse.getMensage(), descripcionID]);
         },
         error: function (errorMessage) {
             console.log(errorMessage.responseText);
@@ -40,6 +43,7 @@ guardarInfoVisitante = () => {
     });
 }
 
+//Estructura de la respuesta obtenida por el Backend:
 class RegisterResponse {
     constructor(response) {
         response && Object.assign(this, response);

@@ -1,0 +1,116 @@
+﻿.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.3);
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: none !important;
+    width: 25% !important;
+    font-weight: 600;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.3s;
+    animation-name: animatetop;
+    animation-duration: 0.3s;
+}
+
+.modal-header {
+    background-color: #FC427B !important;
+    color: white;
+    height: 40px;
+}
+
+.modal-tit {
+    position: absolute;
+    top: 0;
+    width: 90%;
+    text-align: center;
+    font-size: 18px;
+    color: honeydew;
+}
+
+.modal-info {
+    color: #353b48;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.msj-soporte {
+    font-size: 80%;
+    font-style: italic;
+    color: #34495e;
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+
+/*Agregar animación*/
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/*BOTÓN PARA CERRAR*/
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.close:hover, .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn-cerrar {
+    margin-bottom: 1em;
+    width: 40%;
+    background: #FC427B;
+    border: none;
+    color: #fff;
+    outline-style: none !important;
+    border-radius: 60px;
+}
+
+.btn-cerrar:hover {
+    box-shadow: rgba(252, 66, 123,.4) 5px 3px 10px 1px;
+    color: #fff;
+}

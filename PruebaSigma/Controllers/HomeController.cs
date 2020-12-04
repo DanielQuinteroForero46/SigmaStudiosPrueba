@@ -22,6 +22,7 @@ namespace PruebaSigma.Controllers
             Task<string> taskDistribucionGeo = Task.Run(() => SigmaDistribucionGeo.ObtenerDepartamentos());
             taskDistribucionGeo.Wait();
 
+            //Definir respuesta en formato JSON
             return new JsonResult()
             {
                 JsonRequestBehavior = JsonRequestBehavior.AllowGet,
@@ -32,6 +33,7 @@ namespace PruebaSigma.Controllers
         [HttpPost]
         public ActionResult GuardarVisitante(visitante visitante)
         {
+            //Definir respuesta en formato JSON
             JsonResult jsonResult = new JsonResult(){ JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
             MsgResponse validacionCampos = ValidarCampos.Validar(visitante);
